@@ -24,7 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c@^m6*gst6^)3hck8ju8d8gs^4xi!jwuw1nwygvc-ms4*js30j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
+# read this value from .env
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+# DEBUG = True  # Set to True during development
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost',
                  'djangotutorial.projects.linwise.com']
@@ -58,7 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',  # Ensure this is included
 ]
 
 MIDDLEWARE = [
@@ -138,9 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR / "static"
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Or any absolute path you prefer
+STATIC_ROOT = os.path.join(BASE_DIR)  # Keep this for collectstatic
 
 
 # Default primary key field type
