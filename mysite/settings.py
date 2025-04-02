@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-c@^m6*gst6^)3hck8ju8d8gs^4xi!jwuw1nwygvc-ms4*js30j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost',
+                 'djangotutorial.projects.linwise.com']
 
 LOGGING = {
     'version': 1,
@@ -39,11 +40,13 @@ LOGGING = {
     'loggers': {
         'django.request': {
             'handlers': ['console'],
-            'level': 'CRITICAL',
+            'level': 'ERROR',
             'propagate': False,
         },
     },
 }
+
+APPEND_SLASH = False
 
 
 # Application definition
